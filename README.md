@@ -1,4 +1,4 @@
-Dockerfile creates an image at `quay.io/congxdev/otp-console-link`.
+Dockerfile creates an image at `quay.io/congxdev/otp-console-link:4.8`.
 
 ## Usage
 
