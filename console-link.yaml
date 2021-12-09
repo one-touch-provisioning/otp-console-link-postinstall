@@ -1,0 +1,11 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: argocd
+spec:
+  applicationMenu:
+    imageURL: #APP_MENU_IMAGE_URL
+    section: #APP_MENU_SECTION
+  href: #CONSOLE_LINK_URL
+  location: ApplicationMenu
+  text: #CONSOLE_LINK_TEXT
