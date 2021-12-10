@@ -31,5 +31,3 @@ sed "s@#APP_MENU_SECTION@${APP_MENU_SECTION}@g"| \
 sed "s@#CONSOLE_LINK_URL@${CONSOLE_LINK_URL}@g"| \
 sed "s@#CONSOLE_LINK_TEXT@${CONSOLE_LINK_TEXT}@g"| \
 oc apply -f -
-
-exit 0

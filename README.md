@@ -1,4 +1,4 @@
-Dockerfile creates an image at `quay.io/congxdev/otp-console-link`.
+Dockerfile creates an image at `quay.io/congxdev/otp-console-link:4.8`.
 
 ## Usage
 
@@ -48,7 +48,7 @@ spec:
   template:
     spec:
       containers:
-      - name: argocd-console-link-postinstall
+      - name: rhacm-console-link-postinstall
         image: quay.io/congxdev/otp-console-link:4.8
         imagePullPolicy: Always
         env:
@@ -61,7 +61,7 @@ spec:
         - name: ROUTE_NAMESPACE
           value: open-cluster-management
         - name: CONSOLE_LINK_TEXT
-          value: OpenShift GitOps
+          value: Red Hat Advanced Cluster Management
       restartPolicy: Never
   backoffLimit: 2
 ```
