@@ -22,12 +22,26 @@ if [ -z "${CONSOLE_LINK_TEXT}" ]; then
     echo "Please provide CONSOLE_LINK_TEXT as an environment variable"
     exit
 fi
+if [ -z "${APP_NAME}" ]; then
+    echo "Please provide APP_NAME as an environment variable"
+    exit
+fi
 
 CONSOLE_LINK_URL="https://$(oc get route $ROUTE_NAME -o=jsonpath='{.spec.host}' -n $ROUTE_NAMESPACE)"
 
-cat console-link.yaml | \
-sed "s@#APP_MENU_IMAGE_URL@${APP_MENU_IMAGE_URL}@g" | \
-sed "s@#APP_MENU_SECTION@${APP_MENU_SECTION}@g"| \
-sed "s@#CONSOLE_LINK_URL@${CONSOLE_LINK_URL}@g"| \
-sed "s@#CONSOLE_LINK_TEXT@${CONSOLE_LINK_TEXT}@g"| \
-oc apply -f -
+RESULT=$?
+if [ $RESULT -eq 0 ]; then
+    cat console-link.yaml | \
+    sed "s@#APP_MENU_IMAGE_URL@${APP_MENU_IMAGE_URL}@g" | \
+    sed "s@#APP_MENU_SECTION@${APP_MENU_SECTION}@g"| \
+    sed "s@#CONSOLE_LINK_URL@${CONSOLE_LINK_URL}@g"| \
+    sed "s@#CONSOLE_LINK_TEXT@${CONSOLE_LINK_TEXT}@g"| \
+    sed "s@#APP_NAME@${APP_NAME}@g"| \
+    oc apply -f -
+
+else
+    echo "Route $ROUTE_NAME in $ROUTE_NAMESPACE not exist"
+    exit 1
+fi
+
+

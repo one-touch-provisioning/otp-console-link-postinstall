@@ -30,7 +30,9 @@ spec:
           value: openshift-gitops
         - name: CONSOLE_LINK_TEXT
           value: OpenShift GitOps
-      restartPolicy: Never
+        - name: APP_NAME
+          value: argocd
+      restartPolicy: OnFailure
   backoffLimit: 2
 ```
 
@@ -62,7 +64,9 @@ spec:
           value: open-cluster-management
         - name: CONSOLE_LINK_TEXT
           value: Red Hat Advanced Cluster Management
-      restartPolicy: Never
+        - name: APP_NAME
+          value: rhacm
+      restartPolicy: OnFailure
   backoffLimit: 2
 ```
 
@@ -94,7 +98,9 @@ spec:
           value: ibm-common-services
         - name: CONSOLE_LINK_TEXT
           value: IBM Infrastructure Automation
-      restartPolicy: Never
+        - name: APP_NAME
+          value: infra-auto
+      restartPolicy: OnFailure
   backoffLimit: 2
 ```
 
@@ -126,6 +132,8 @@ spec:
           value: ansible-automation-platform
         - name: CONSOLE_LINK_TEXT
           value: Ansible Tower
-      restartPolicy: Never
+        - name: APP_NAME
+          value: ansible
+      restartPolicy: OnFailure
   backoffLimit: 2
 ```
