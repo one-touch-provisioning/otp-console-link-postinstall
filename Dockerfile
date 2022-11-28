@@ -1,4 +1,4 @@
-FROM quay.io/openshift/origin-cli:4.8
+FROM quay.io/openshift/origin-cli:4.10
 
 WORKDIR ~
 COPY main.sh main.sh
